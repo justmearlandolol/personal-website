@@ -1033,3 +1033,131 @@ p {
     transform: none;
   }
 }
+.about-facts strong {
+  font-weight: inherit;
+}
+
+.certificates {
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.certificate-window {
+  overflow: hidden;
+}
+
+.certificate-track {
+  display: flex;
+  width: max-content;
+  animation: certificates-right 100s linear infinite;
+}
+
+.certificate-group {
+  display: flex;
+  flex: none;
+  gap: 18px;
+  padding-right: 18px;
+}
+
+.certificate-item {
+  width: clamp(200px, 23vw, 300px);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: white;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.certificate-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s var(--ease);
+}
+
+.certificate-item:hover img,
+.certificate-item:focus-visible img {
+  transform: scale(1.04);
+}
+
+.certificate-item:focus-visible {
+  outline: 3px solid #555;
+  outline-offset: -3px;
+}
+
+.certificate-window:hover .certificate-track,
+.certificate-window:focus-within .certificate-track {
+  animation-play-state: paused;
+}
+
+@keyframes certificates-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.certificate-dialog {
+  width: min(94vw, 1100px);
+  max-width: none;
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  background: white;
+  color: var(--black);
+}
+
+.certificate-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.certificate-dialog-inner {
+  padding: clamp(16px, 3vw, 28px);
+}
+
+.certificate-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.certificate-dialog-header h2 {
+  font-size: 1.15rem;
+}
+
+.certificate-close {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.certificate-full {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: var(--gray-100);
+}
+
+.certificate-pdf {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .nav { gap: 9px; font-size: 0.72rem; }
+  .nav-inner { gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .certificate-window { overflow-x: auto; }
+  .certificate-group[aria-hidden="true"] { display: none; }
+}
