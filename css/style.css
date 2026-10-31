@@ -1161,3 +1161,15 @@ p {
   .certificate-window { overflow-x: auto; }
   .certificate-group[aria-hidden="true"] { display: none; }
 }
+
+.project-title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.project-title-with-icon img {
+  width: 1.3em;
+  height: 1.3em;
+  object-fit: contain;
+}
